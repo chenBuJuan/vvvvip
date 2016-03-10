@@ -83,11 +83,11 @@
     
     opacity: 1;
     
-    animation:loding 2.5s ease-in-out 0.5s;
-    -o-animation:loding 2.5s ease-in-out 0.5s;
-    -ms-animation:loding 2.5s ease-in-out 0.5s;
-    -moz-animation:loding 2.5s ease-in-out 0.5s;
-    -webkit-animation:loding 2.5s ease-in-out 0.5s;
+    animation:loding 2.5s ease-in-out;
+    -o-animation:loding 2.5s ease-in-out;
+    -ms-animation:loding 2.5s ease-in-out;
+    -moz-animation:loding 2.5s ease-in-out;
+    -webkit-animation:loding 2.5s ease-in-out;
 }
 
 #content-1 nav{
@@ -97,6 +97,20 @@
     position: relative;
     left: 200px;
     top: 50px;
+    
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
+}
+
+#content-1 nav:hover{
+    background-color: black;
+}
+
+#content-1 nav:hover a{
+    color: orange;
 }
 
 #content-1 nav a{
@@ -109,6 +123,13 @@
     width: 100%;
     text-align: center;
     line-height: 30px;
+    font-weight: bold;
+    
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
 }
 
 #content-1 .message{
@@ -117,6 +138,7 @@
     position: relative;
     left: 150px;
     top: 50px;
+    cursor: default;
     
     font-family: Arial;
     font-size: 50px;
@@ -178,9 +200,29 @@
 #content-2 .cell .mes{
     width: 400px;
     height: 200px;
+    font-size: 16px;
+    font-family: Arial;
+    color: #fff;
+    text-align: left;
     position: absolute;
     left: 100px;
     top: -50px;
-    background-color: orange;
     opacity: 0;
+}
+
+#content-2 .cell .mes dl{
+    height: 200px;
+    width: 300px;
+    position: relative;
+    left: 50px;
+}
+
+#content-2 .cell .mes dl a{
+    font-size: 13px;
+    text-decoration: none;
+    color: #B8B8B8;
+}
+
+#content-2 .cell .mes dl dt,#content-2 .cell .mes dl,dd{
+    cursor: default;
 }
