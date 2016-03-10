@@ -51,38 +51,39 @@ function startMove(obj,json,fn){
 		},30);
 }
 
+var cells,images,mes;
+var index;
+
+function imageFn(){
+    
+    index = this.index;
+    
+    for(var j = 0 ; j < 5 ; j ++){
+        
+        images[j].style.opacity = 0;
+        images[j].style.cursor = 'default';
+        images[j].onclick = null;
+    }
+    
+    images[index].style.opacity = 1;
+    
+    startMove(cells[index],{'left':-100*index},function(){
+        
+        startMove(mes[index],{'opacity':100});
+    });
+}
+
 window.onload = function(){
     
-        var cells = document.getElementsByClassName('cell');
-        var images = document.getElementById('content-2').getElementsByTagName('img');
-        var mes = document.getElementsByClassName('mes');
-        var cell_left,index;
+    cells = document.getElementsByClassName('cell');
+    images = document.getElementById('content-2').getElementsByTagName('img');
+    mes = document.getElementsByClassName('mes');
     
     for(var i =0 ; i < 5 ; i ++){
         
         images[i].index = i;
         
-        images[i].onclick = function(){
-            
-            index = this.index;
-            
-            for(var j = 0 ; j < 5 ; j ++){
-                
-                images[j].style.opacity = 0;
-                images[j].onclick = null;
-            }
-            
-            cell_left = getStyle(cells[index],'left');
-            
-            images[index].style.opacity = 1;
-            
-            var fnNext = function(){
-                
-                startMove(mes[index],{'opacity':100})
-            };
-            
-            startMove(cells[index],{'left':-100*index},fnNext);
-        };
+        images[i].onclick = imageFn;
     }
 };
 
@@ -99,4 +100,27 @@ function move(){
     startMove(content_1,{'opacity':0},fnNext);
     
     content_2.style.zIndex = 10;
+}
+
+function back(){
+    
+    startMove(mes[index],{'opacity':0},function(){
+        
+        startMove(cells[index],{'left':0},function(){
+            
+            for(var i = 0 ; i < 5 ; i ++){
+                
+                startMove(images[i],{'opacity':100});
+            }
+            
+            setTimeout(function(){
+                
+                for(var i = 0 ; i < 5 ; i ++){
+                    
+                    images[i].style.cursor = 'pointer';
+                    images[i].onclick = imageFn;
+                }
+            },1300);
+        });
+    });
 }
