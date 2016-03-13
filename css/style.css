@@ -195,6 +195,18 @@
     border-radius: 40px;
     overflow: hidden;
     cursor: pointer;
+    
+    -webkit-transition: transform 0.6s ease-in-out ;
+    -moz-transition: transform 0.6s ease-in-out ;
+    transition: transform 0.6s ease-in-out ;
+}
+
+#content-2 .cell img:hover{
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #content-2 .cell .mes{
